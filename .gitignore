@@ -1,0 +1,17 @@
+# Ignore everything by default
+*
+
+# But keep these files
+!.gitignore
+!link.ld
+!js.c
+!Makefile
+!startup.S
+!uart.c
+!uart.h
+!elk.c
+!elk.h
+!README.md
+
+# Ignore IDE specific files
+.vscode/
