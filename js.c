@@ -21,7 +21,6 @@ int main() {
     js_set(js, js_glob(js), "print_uart", js_mkfun(print_uart));
     char *js_code = "let msg = \"Hello from JS!\";\n"
     "for (let i = 0; i < 10; i++) {\n"
-    //"    let iteration_message = msg + msg + \"\\n\";\n"
     "    let iteration_message = \"\";\n"
     "    for (let j = 0; j < i; j++) { iteration_message += msg; }\n"
     "    iteration_message += \"\\n\";\n"
