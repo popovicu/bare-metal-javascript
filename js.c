@@ -19,7 +19,16 @@ int main() {
     struct js *js = js_create(mem, sizeof(mem));
 
     js_set(js, js_glob(js), "print_uart", js_mkfun(print_uart));
-    char *js_code = "let msg = \"Hello from JS!\\n\"; print_uart(msg, msg.length);";
+    char *js_code = "let msg = \"Hello from JS!\";\n"
+    "for (let i = 0; i < 10; i++) {\n"
+    //"    let iteration_message = msg + msg + \"\\n\";\n"
+    "    let iteration_message = \"\";\n"
+    "    for (let j = 0; j < i; j++) { iteration_message += msg; }\n"
+    "    iteration_message += \"\\n\";\n"
+    "    print_uart(iteration_message, iteration_message.length);"
+    "}\n"
+    "let successMessage = \"Successful JavaScript!\\n\";\n"
+    "print_uart(successMessage, successMessage.length);";
     jsval_t result = js_eval(js, js_code, strlen(js_code));
     uart_puts(js_str(js, result)); uart_putc('\n');
 
